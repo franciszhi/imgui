@@ -3,8 +3,7 @@
 
 // Implemented features:
 //  [X] Renderer: Support for large meshes (64k+ vertices) with 16-bit indices.
-// Missing features:
-//  [ ] Renderer: User texture binding. Changes of ImTextureID aren't supported by this binding! See https://github.com/ocornut/imgui/pull/914
+// In this binding, ImTextureID is used to store a 'VkDescriptorSet' texture identifier. Read the FAQ about ImTextureID in imgui.cpp.
 
 // You can copy and use unmodified imgui_impl_* files in your project. See main.cpp for an example of using this.
 // If you are new to dear imgui, read examples/README.txt and read the documentation at the top of imgui.cpp.
@@ -77,6 +76,7 @@ IMGUI_IMPL_API void                 ImGui_ImplVulkanH_DestroyWindow(VkInstance i
 IMGUI_IMPL_API VkSurfaceFormatKHR   ImGui_ImplVulkanH_SelectSurfaceFormat(VkPhysicalDevice physical_device, VkSurfaceKHR surface, const VkFormat* request_formats, int request_formats_count, VkColorSpaceKHR request_color_space);
 IMGUI_IMPL_API VkPresentModeKHR     ImGui_ImplVulkanH_SelectPresentMode(VkPhysicalDevice physical_device, VkSurfaceKHR surface, const VkPresentModeKHR* request_modes, int request_modes_count);
 IMGUI_IMPL_API int                  ImGui_ImplVulkanH_GetMinImageCountFromPresentMode(VkPresentModeKHR present_mode);
+IMGUI_IMPL_API ImTextureID          ImGui_ImplVulkan_AddTexture(VkSampler sampler, VkImageView image_view, VkImageLayout image_layout);
 
 // Helper structure to hold the data needed by one rendering frame
 // (Used by example's main.cpp. Used by multi-viewport features. Probably NOT used by your own engine/app.)
